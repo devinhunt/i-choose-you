@@ -36,7 +36,7 @@ USE_I18N = True
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = '/Users/devin/Code/ichooseyou/media/'
-FILE_UPLOAD_TEMP_DIR = '//Users/devin/Code/ichooseyou/tmp/'
+FILE_UPLOAD_TEMP_DIR = '/Users/devin/Code/ichooseyou/tmp/'
 
 LOGIN_URL = '/'
 

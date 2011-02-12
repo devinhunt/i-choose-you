@@ -1,0 +1,17 @@
+bin/*
+include/*
+lib/*
+.*.swp
+*.py[co]
+.*
+bin/
+develop-eggs/
+downloads/
+eggs/
+parts/
+debug.log
+hailpixel.ichooseyou.egg-info/
+var/
+!.gitignore
+tmp/
+media/pokes/
