@@ -7,7 +7,7 @@ from django.template import RequestContext
 def home(request):
     data = {}
         
-    return render_to_response("base.html", data, context_instance=RequestContext(request))
+    return render_to_response("home/home.html", data, context_instance=RequestContext(request))
 
 from django.conf.urls.defaults import *
 
