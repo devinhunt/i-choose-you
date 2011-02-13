@@ -16,24 +16,43 @@ $(function() {
     var IChoose = window.IChoose = {
         
         parts: {
-            arms : [
-                { name: "Arm 1", id: 'arm1', icon: "/static/img/parts/arm_1_icon.png", img: "" },
-                { name: "Arm 2", id: 'arm2', icon: "/static/img/parts/arm_2_icon.png", img: "" },
-                { name: "Arm 3", id: 'arm3', icon: "/static/img/parts/arm_3_icon.png", img: "" },
-                { name: "Arm 4", id: 'arm4', icon: "/static/img/parts/arm_4_icon.png", img: "" }
+            body : [
+                { id: 'body1', icon: "media/img/parts/body-1-pink.png", img: "media/img/parts/body-1-pink.png" },
             ],
-            legs : [
-                { name: "Leg 1", id: 'leg1', icon: "/static/img/parts/arm_1_icon.png", img: "" },
-                { name: "Leg 2", id: 'leg2', icon: "/static/img/parts/arm_2_icon.png", img: "" },
-                { name: "Leg 3", id: 'leg3', icon: "/static/img/parts/arm_3_icon.png", img: "" },
-                { name: "Leg 4", id: 'leg4', icon: "/static/img/parts/arm_4_icon.png", img: "" }
+            faces : [
+                { id: 'face1', icon: "media/img/parts/face-1.png", img: "media/img/parts/face-1.png" },
+                { id: 'face2', icon: "media/img/parts/face-2.png", img: "media/img/parts/face-2.png" },
+                { id: 'face3', icon: "media/img/parts/face-3.png", img: "media/img/parts/face-3.png" },
+                { id: 'face4', icon: "media/img/parts/face-4.png", img: "media/img/parts/face-4.png" },
+                { id: 'face5', icon: "media/img/parts/face-5.png", img: "media/img/parts/face-5.png" },
+                { id: 'face6', icon: "media/img/parts/face-6.png", img: "media/img/parts/face-6.png" },
+                { id: 'face7', icon: "media/img/parts/face-7.png", img: "media/img/parts/face-7.png" }
             ],
             eyes : [
-                { name: "Eye 1", id: 'eye1', icon: "/static/img/parts/arm_1_icon.png", img: "" },
-                { name: "Eye 2", id: 'eye2', icon: "/static/img/parts/arm_2_icon.png", img: "" },
-                { name: "Eye 3", id: 'eye3', icon: "/static/img/parts/arm_3_icon.png", img: "" },
-                { name: "Eye 4", id: 'eye4', icon: "/static/img/parts/arm_4_icon.png", img: "" }
-            ]
+                { id: 'eye1', icon: "media/img/parts/eyes-1.png", img: "media/img/parts/eyes-1.png" },
+                { id: 'eye2', icon: "media/img/parts/eyes-2.png", img: "media/img/parts/eyes-2.png" },
+                { id: 'eye3', icon: "media/img/parts/eyes-3.png", img: "media/img/parts/eyes-3.png" },
+                { id: 'eye4', icon: "media/img/parts/eyes-4.png", img: "media/img/parts/eyes-4.png" }
+            ],
+            arms : [
+                { id: 'arm1', icon: "media/img/parts/arms-1-pink.png", img: "media/img/parts/arms-1-pink.png" },
+                { id: 'arm2', icon: "media/img/parts/arms-2-pink.png", img: "media/img/parts/arms-2-pink.png" },
+                { id: 'arm3', icon: "media/img/parts/arms-3-pink.png", img: "media/img/parts/arms-3-pink.png" },
+                { id: 'arm4', icon: "media/img/parts/arms-4-pink.png", img: "media/img/parts/arms-4-pink.png" },
+                { id: 'arm5', icon: "media/img/parts/arms-5-pink.png", img: "media/img/parts/arms-5-pink.png" }
+            ],
+            feet : [
+                { id: 'feet1', icon: "media/img/parts/feet-1-pink.png", img: "media/img/parts/feet-1-pink.png" },
+                { id: 'feet2', icon: "media/img/parts/feet-2-pink.png", img: "media/img/parts/feet-2-pink.png" },
+                { id: 'feet3', icon: "media/img/parts/feet-3-pink.png", img: "media/img/parts/feet-3-pink.png" },
+                { id: 'feet4', icon: "media/img/parts/feet-4-pink.png", img: "media/img/parts/feet-4-pink.png" }
+            ],
+            tails : [
+                { id: 'tail1', icon: "media/img/parts/tail-1-pink.png", img: "media/img/parts/tail-1-pink.png" },
+                { id: 'tail2', icon: "media/img/parts/tail-2-pink.png", img: "media/img/parts/tail-2-pink.png" },
+                { id: 'tail3', icon: "media/img/parts/tail-3-pink.png", img: "media/img/parts/tail-3-pink.png" },
+                { id: 'tail4', icon: "media/img/parts/tail-4-pink.png", img: "media/img/parts/tail-4-pink.png" }
+            ],
         }
     };
     
@@ -105,7 +124,7 @@ $(function() {
             "click .randomize"              : "onRandomizeClick"
         },
         
-        currentTray : 'arms',
+        currentTray : 'faces',
         
         initialize : function() {
             this.render();
@@ -176,8 +195,26 @@ $(function() {
                 this.cardView = new CardView({model: this.model});
                 this.$('.card-container').html(this.cardView.render().el);
             }
-        }
+            //this.setSharing();
+        },
         
+        setSharing : function() {
+            
+            function _getTwitterLink(name, url) {
+                return '<a href="http://twitter.com/share" class="twitter-share-button" data-url="' + url +'" data-text="I choose ' + name + ' to be my valentine!" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
+            }
+            
+            function _getFBLink(name, url) {
+                return '<iframe src="http://www.facebook.com/plugins/like.php?href=' + url + '&amp;layout=button_count&amp;show_faces=false&amp;width=300&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:21px;" allowTransparency="true"></iframe>';
+            }
+            
+            if(this.model) {
+                var url = window.location.href;
+                console.log(url);
+                var name = this.model.get('name');
+                this.$('.share').html(_getTwitterLink(name, url) + _getFBLink(name, url));
+            }
+        }
     });
     
     window.ChooseYouView = Backbone.View.extend({
@@ -264,12 +301,25 @@ $(function() {
     }
     
     function hashCard(model) {
-        return JSON.stringify(model);
+        var hash = ''
+        
+        _.each(model.toJSON(), function(val, key) {
+            if(val && val != "") {
+                hash += key + '|' + val + '||';
+            }
+        });
+            
+        return hash;
     }
     
     function dehashCard(hash) {
-        var modelObj = JSON.parse(hash);
-        return new Card(modelObj);
+        var pairs = hash.split('||');
+        var attrs = {};
+        _.each(pairs, function(val) {
+            var keyval = val.split('|');
+            attrs[keyval[0]] = keyval[1];
+        });
+        return new Card(attrs);
     }
     
     // Initialize the app and kick things off ..
