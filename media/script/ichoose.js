@@ -29,10 +29,10 @@ $(function() {
                 { name: "Leg 4", id: 'leg4', icon: "/static/img/parts/arm_4_icon.png", img: "" }
             ],
             eyes : [
-                { name: "Leg 1", id: 'eye1', icon: "/static/img/parts/arm_1_icon.png", img: "" },
-                { name: "Leg 2", id: 'eye2', icon: "/static/img/parts/arm_2_icon.png", img: "" },
-                { name: "Leg 3", id: 'eye3', icon: "/static/img/parts/arm_3_icon.png", img: "" },
-                { name: "Leg 4", id: 'eye4', icon: "/static/img/parts/arm_4_icon.png", img: "" }
+                { name: "Eye 1", id: 'eye1', icon: "/static/img/parts/arm_1_icon.png", img: "" },
+                { name: "Eye 2", id: 'eye2', icon: "/static/img/parts/arm_2_icon.png", img: "" },
+                { name: "Eye 3", id: 'eye3', icon: "/static/img/parts/arm_3_icon.png", img: "" },
+                { name: "Eye 4", id: 'eye4', icon: "/static/img/parts/arm_4_icon.png", img: "" }
             ]
         }
     };
@@ -55,7 +55,6 @@ $(function() {
         
         render : function() {
             var view = this.view || this;
-            console.log(view.model.toJSON());
             $(view.el).html(this.template({layers: view.model.toJSON()}));
             view.updateContent();
             return view;
@@ -65,11 +64,17 @@ $(function() {
          * Sets all the current image properties based on the model instructions
          */
         updateContent : function() {
-            var that = this;
-            _.each(this.model.toJSON(), function(val, key) {
-                var partSet = getLayerUrl(key, val);
-                that.$('.tinemon .' + key + ' img').attr('src', partSet.icon);
+            var that = this.view || this;
+            
+            _.each(that.model.toJSON(), function(val, key) {
+                if(IChoose.parts[key]) {
+                    var partSet = getLayerUrl(key, val);
+                    that.$('.tinemon .' + key + ' img').attr('src', partSet.icon);
+                }
             });
+            
+            that.$('.name').text(that.model.get('name'));
+            that.$('.description').text(that.model.get('description'));
         }
     });
     
@@ -83,13 +88,33 @@ $(function() {
         template: _.template($('#template_editor_ui').html()),
         
         events : {
-            "click .toolbox nav a"      : "onToolboxTabClick"
+            "click .toolbox nav a"          : "onToolboxTabClick",
+            "click .tray a.part"            : "onPartClick",
+            "keyup .cardtext .name"         : "onNameChange",
+            "keyup .cardtext .description"  : "onDescriptionChange",
+            
+            "click .publish"                : "onPublishClick",
+            "click .randomize"              : "onRandomizeClick"
         },
         
         currentTray : 'arms',
         
         initialize : function() {
             this.render();
+            this.descriptionInput = this.$('.cardtext textmate.description');
+        },
+        
+        render : function() {
+            $(this.el).html(this.template(window.IChoose));
+            
+            if(this.model) {
+                this.editCardView = new CardView({model: this.model});
+                this.$('.composition').html(this.editCardView.render().el);
+            }
+            
+            if(this.currentTray) {
+                this.$('.toolbox nav a.' + this.currentTray).click();
+            }
         }, 
         
         /** _____________________________________ Toolbox UI Events */
@@ -104,22 +129,47 @@ $(function() {
             this.$('.toolbox .tray .' + partType).removeClass('hidden');
         },
         
-        render : function() {
-            $(this.el).html(this.template(window.IChoose));
+        onPartClick : function(event) {
+            var partEl = $(event.target).parents('a.part');
+            var partType = partEl.attr('data-part-type');
+            var partId = partEl.attr('data-part-id');
+            var newVal = {};
+            newVal[partType] = partId;
+            this.model.set(newVal);
+            return false;
+        },
+        
+        onNameChange : function(event) {
+            this.model.set({name: this.$('.cardtext .name').val()});
+        },
+        
+        onDescriptionChange : function(event) {
+            this.model.set({description: this.$('.cardtext .description').val()});
+        },
+        
+        onPublishClick : function(event) {
+            App.displayCard(hashCard(this.model));
+        },
+        
+        onRandomizeClick : function(event) {
             
-            if(this.model) {
-                this.editCardView = new CardView({model: this.model});
-                this.$('.composition').html(this.editCardView.render().el);
-            }
-            
-            if(this.currentTray) {
-                this.$('.toolbox nav a.' + this.currentTray).click();
-            }
         }
     });
     
     window.StageView = Backbone.View.extend({
-        el: $('#stage')
+        el: $('#stage'), 
+        
+        initialize : function() {
+            this.render();
+        },
+        
+        render : function() {
+            if(this.model) {
+                this.cardView = new CardView({model: this.model});
+                this.$('.card-container').html(this.cardView.render().el);
+            }
+        }
+        
     });
     
     window.ChooseYouView = Backbone.View.extend({
@@ -134,7 +184,6 @@ $(function() {
             // init editor
             EditorView.model = generateRandomCard();
             EditorView.render();
-            
             
             // init stage
         }, 
@@ -154,14 +203,19 @@ $(function() {
             this.currentState = view_id;
         },
         
+        displayCard : function(hash) {
+            window.location.hash = 'card/' + hash;
+        }
+        
     });
     
     // ____________________________________________________ Controllers
     window.ChooseYouController = Backbone.Controller.extend({
         routes : {
-            ''                  : 'landing',
-            'editor'            : 'editor',
-            ':creation_slug'    : 'creation'
+            ''                      : 'landing',
+            'editor'                : 'editor',
+            'card'                  : 'landing',
+            'card/:creation_slug'   : 'creation'
         },
         
         landing : function() {
@@ -173,6 +227,8 @@ $(function() {
         },
         
         creation : function(creation_slug) {
+            StageView.model = dehashCard(creation_slug);
+            StageView.render();
             App.showState('stage');
         }
     });
@@ -197,6 +253,15 @@ $(function() {
             }
         }
         return null;
+    }
+    
+    function hashCard(model) {
+        return JSON.stringify(model);
+    }
+    
+    function dehashCard(hash) {
+        var modelObj = JSON.parse(hash);
+        return new Card(modelObj);
     }
     
     // Initialize the app and kick things off ..

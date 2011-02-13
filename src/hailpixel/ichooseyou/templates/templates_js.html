@@ -2,9 +2,11 @@
     <h1 class="name"></h1>
     <div class="tinemon">
     <% _.each(layers,function (set, key) { %>
+        <% if(key != 'name' && key != 'description') { %>
         <div class="layer <%= key %>">
             <img />
         </div>
+        <% } %>
     <% }); %>
     </div>
     <div class="description">
@@ -25,16 +27,25 @@
         <nav>
             <% _.each(parts, function (set, key) { %> <a class="<%= key %>" data-type="<%= key %>"><%= key %></a> <% }); %>
         </nav>
-        
         <div class="tray">
         <% _.each(parts, function (set, key) { %>
             <div class="items hidden <%= key %>">
             <% _.each(set, function (item) { %> 
+                <a class="part" data-part-type="<%= key %>" data-part-id="<%= item.id %>">
                 <img src="<%= item.icon %>" />
                 <%= item.name %>
+                </a>
             <% }); %>
             </div>
         <% }); %>
+        </div>
+        <div class="cardtext">
+            Name your pokemon <input class="text name" type="text" />
+            Give it a message <textarea class="description"></textarea>
+        </div>
+        <div class="controls">
+            <a class="publish">Done!</a>
+            <a class="randomize">Randomize Your Pokemon</a>
         </div>
     </div>
 </script>
