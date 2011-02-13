@@ -79,7 +79,15 @@ $(function() {
     });
     
     window.LandingView = Backbone.View.extend({
-        el: $('#stage')
+        el: $('#landing'),
+        
+        events : {
+            'click .get-started button'     : 'onStartClick'
+        },
+        
+        onStartClick : function(event) {
+            window.location.hash = "editor";
+        }
     });
     
     window.EditorView = Backbone.View.extend({
@@ -192,13 +200,13 @@ $(function() {
             // TEMP TODO :: Transition between states using animated sliding.
             $('.page').addClass('hidden');
             var targetEl = $('#' + view_id);
-            
+
             function getCenterPosition(el) {
                 var elWidth = el.width();
                 var winWidth = $(window).width();
-                return {top: '128px', left: Math.ceil(winWidth / 2 - elWidth / 2) + 'px' };
+                return {top: '220px', left: Math.ceil(winWidth / 2 - elWidth / 2) + 'px' };
             }
-            
+
             targetEl.removeClass('hidden').css(getCenterPosition(targetEl));
             this.currentState = view_id;
         },

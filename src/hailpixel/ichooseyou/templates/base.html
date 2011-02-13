@@ -26,23 +26,28 @@
 <body>
 
     <div id="container">
-        <header id="main-header">
-            <h1>I Choose You!</h1>
-            <h2>Choose your valentine this Feb 14th!</h2>
-        </header>
+        <div id="inner-container">
+            <div id="main-continer">
+                <header id="main-header">
+                    <h1>I Choose You!</h1>
+                </header>
     
-        <hr />
+                <hr />
     
-        <div id="main">
-            {% block main %}{% endblock %}
-        </div>
+                <div id="main">
+                    {% block main %}{% endblock %}
+                </div>
         
-        <hr />
+                <hr />
     
-        <footer id="main-footer">
+                <footer id="main-footer">
             
-        </footer>
-        <hr />
+                </footer>
+                <hr />
+            </div>
+        </div>
+        <div class="cloud cloud-right"></div>
+        <div class="cloud cloud-left"></div>
     </div>
     
     {% include "templates_js.html" %}

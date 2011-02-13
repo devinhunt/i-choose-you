@@ -156,7 +156,6 @@ html {
 body {
   font: 13px/1.231 sans-serif;
   *font-size: small;
-  background-color: #a7daf9;
 }
 select,
 input,
@@ -309,14 +308,11 @@ button {
 .clearfix {
   zoom: 1;
 }
-#container {
-  position: relative;
-  background-color: #a7daf9;
-}
 .box {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 100;
 }
 .relative {
   position: relative;
@@ -335,6 +331,9 @@ button {
 .clear {
   clear: both;
 }
+.text-center {
+  text-align: center;
+}
 hr, .break {
   clear: both;
   display: block;
@@ -346,18 +345,75 @@ hr, .break {
   padding: 0;
   border: 0;
 }
+body {
+  background: url(/static/img/ui/bg-hill-tile.png) #a7daf9;
+}
+#container {
+  position: relative;
+  background: #62bdf4 url(/static/img/ui/bg-hill-top-tile.jpg) repeat-x;
+  height: 512px;
+}
+#inner-container {
+  position: relative;
+  background: transparent url(/static/img/ui/bg-hill-top.jpg) bottom center no-repeat;
+  height: 512px;
+}
+.cloud {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 313px;
+  height: 170px;
+  background: transparent url(/static/img/ui/cloud-left.png);
+  z-index: 10;
+}
+.cloud-right {
+  top: 29px;
+  left: auto;
+  right: 24px;
+  width: 172px;
+  height: 122px;
+  background: transparent url(/static/img/ui/cloud-right.png);
+}
+/*_________________________________________________________ Layout - Header */
+#main-header {
+  position: absolute;
+  z-index: 150;
+  top: 10px;
+  left: 50%;
+  width: 292px;
+  height: 190px;
+  margin-left: -146px;
+}
+#main-header h1 {
+  width: 292px;
+  height: 190px;
+  text-indent: -9999px;
+  background: url(/static/img/ui/logo.png);
+}
 /*_________________________________________________________ Layout - Landing */
 #landing {
   position: absolute;
   top: 0;
   left: 0;
-  width: 768px;
+  z-index: 100;
+  width: 400px;
+  background-color: #ffffff;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  padding: 20px;
+}
+#landing .get-started {
+  text-align: center;
+  margin-top: 20px;
 }
 /*_________________________________________________________ Layout - Editor */
 #editor {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 100;
   width: 910px;
 }
 #editor .workbench {
@@ -436,11 +492,16 @@ hr, .break {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
+#editor .toolbox .controls {
+  text-align: center;
+  margin-top: 20px;
+}
 /*_________________________________________________________ Layout - Stage */
 #stage {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 100;
   width: 350px;
 }
 /*_________________________________________________________ Layout - Card */
@@ -470,6 +531,45 @@ hr, .break {
 }
 .card .description {
   margin: 10px;
+}
+/*_________________________________________________________ Type - Buttons */
+button.big-button {
+  background: #F3C508;
+  border-top: 1px solid #c8be00;
+  border-right: 1px solid #c8be00;
+  border-bottom: 1px solid #c8be00;
+  border-left: 1px solid #c8be00;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: inset 0 1px 20px 1px #fff, 0px 1px 0 #3e59a0, 0 6px 0px #3e59a0, 0 6px 4px 1px #111;
+  -webkit-box-shadow: inset 0 1px 20px 1px #fff, 0px 1px 0 #3e59a0, 0 6px 0px #3e59a0, 0 6px 4px 1px #111;
+  box-shadow: inset 0 1px 20px 1px #fff, 0px 1px 0 #3e59a0, 0 6px 0px #3e59a0, 0 6px 4px 1px #111;
+  color: #333333;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 10px;
+  padding: 10px 0 12px 0;
+  text-align: center;
+  text-shadow: 0px -1px 1px #ffffff;
+  width: 150px;
+  -webkit-background-clip: padding-box;
+  margin-bottom: 4px;
+}
+button.big-button:hover {
+  -moz-box-shadow: inset 0 1px 20px 1px #ddd, 0px 1px 0 #3e59a0, 0 6px 0px #3e59a0, 0 6px 4px 1px #111;
+  -webkit-box-shadow: inset 0 1px 20px 1px #ddd, 0px 1px 0 #3e59a0, 0 6px 0px #3e59a0, 0 6px 4px 1px #111;
+  box-shadow: inset 0 1px 20px 1px #ddd, 0px 1px 0 #3e59a0, 0 6px 0px #3e59a0, 0 4px 6px 1px #111;
+  cursor: pointer;
+}
+button.big-button:active {
+  -moz-box-shadow: inset 0 1px 20px 1px #fff, 0px 1px 0 #3e59a0, 0 2px 0px #3e59a0, 0 2px 2px 1px #444;
+  -webkit-box-shadow: inset 0 1px 20px 1px #fff, 0px 1px 0 #3e59a0, 0 2px 0px #3e59a0, 0 2px 2px 1px #444;
+  box-shadow: inset 0 1px 20px 1px #fff, 0px 1px 0 #3e59a0, 0 2px 0px #3e59a0, 0 2px 2px 1px #444;
+  margin-top: 4px;
+  margin-bottom: 0;
 }
 /*_________________________________________________________ Special Media Layouts */
 @media all and (orientation:portrait) {
