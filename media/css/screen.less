@@ -99,9 +99,79 @@ button {  width: auto; overflow: visible; }
 
 
 /*_________________________________________________________ Layout - Global */
-.page { }
+/*.page, .page-flex { display: block; margin-left: auto; margin-right: auto; width: 960px; }
+.page-thin { display: block; margin-left: auto; margin-right: auto; width: 800px; }
+.panelGrid { display: block; margin-left: auto; margin-right: auto; width: 640px; }
+.box { display: inline; float: left; }
+.box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9, .box10, .box11, .box12 {
+     .box; margin-left: 16px; margin-right: 16px;
+}
+.box1 { width: 48px; }
+.box2 { width: 128px; }
+.box3 { width: 208px; }
+.box4 { width: 288px; }
+.box5 { width: 368px; }
+.box6 { width: 448px; }
+.box7 { width: 528px; }
+.box8 { width: 608px; }
+.box9 { width: 688px; }
+.box10 { width: 768px; }
+.box11 { width: 848px; }
+.box12 { width: 928px; }
+.col6 { .box; width: 480px; }
+.col8 { .box; width: 640px; }
+.col9 { .box; width: 720px; }
+.col10 { .box; width: 800px; }
 
+.first { margin-left: 0; }
+.last { margin-right: 0; }
 
+.push1 { margin-left: 96px; }
+.push2 { margin-left: 144px; }
+.push3 { margin-left: 256px; }
+.push4 { margin-left: 336px; }
+.push5 { margin-left: 416px; }
+*/
+
+#main-header, #main-footer {  }
+#container { position: relative}
+.box { position: absolute; top: 0; left: 0; background-color: #ffffaa; width: 768px; }
+
+.relative { position: relative; }
+.hidden { display: none; height: 0; width: 0; }
+.left { float: left; }
+.right { float: right; }
+.clear { clear: both; }
+hr, .break { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; margin: 0; padding: 0; border: 0; }
+
+/*_________________________________________________________ Layout - Landing */
+#landing { .box; 
+    
+}
+
+/*_________________________________________________________ Layout - Editor */
+#editor { .box;
+    .workbench { 
+        
+    }
+
+    .toolbox { 
+        nav {
+            a { }
+            a.selected { background: white; }
+        }
+    }
+}
+
+/*_________________________________________________________ Layout - Stage */
+#stage { .box;
+    
+}
+
+/*_________________________________________________________ Layout - Card */
+.card { width: 200px; height: 300px; background-color: red;
+    
+}
 
 /*_________________________________________________________ Special Media Layouts */
 @media all and (orientation:portrait) { 

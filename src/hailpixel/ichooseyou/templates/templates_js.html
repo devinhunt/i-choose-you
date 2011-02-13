@@ -1,0 +1,40 @@
+<script id="template_card" type="text/html">
+    <h1 class="name"></h1>
+    <div class="tinemon">
+    <% _.each(layers,function (set, key) { %>
+        <div class="layer <%= key %>">
+            <img />
+        </div>
+    <% }); %>
+    </div>
+    <div class="description">
+        <p>
+        
+        </p>
+    </div>
+</script>
+
+<script id="template_editor_ui" type="text/html">
+    <div class="workbench">
+        <div class="composition">
+            
+        </div>
+    </div>
+    
+    <div class="toolbox">
+        <nav>
+            <% _.each(parts, function (set, key) { %> <a class="<%= key %>" data-type="<%= key %>"><%= key %></a> <% }); %>
+        </nav>
+        
+        <div class="tray">
+        <% _.each(parts, function (set, key) { %>
+            <div class="items hidden <%= key %>">
+            <% _.each(set, function (item) { %> 
+                <img src="<%= item.icon %>" />
+                <%= item.name %>
+            <% }); %>
+            </div>
+        <% }); %>
+        </div>
+    </div>
+</script>
