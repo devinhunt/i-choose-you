@@ -148,6 +148,7 @@ hr {
 input, select {
   vertical-align: middle;
 }
+/*_________________________________________________________ Themes */
 /*_________________________________________________________ Typography - Global */
 html {
   overflow-y: scroll;
@@ -155,6 +156,7 @@ html {
 body {
   font: 13px/1.231 sans-serif;
   *font-size: small;
+  background-color: #a7daf9;
 }
 select,
 input,
@@ -172,7 +174,7 @@ body,
 select,
 input,
 textarea {
-  color: #444;
+  color: #333333;
 }
 h1,
 h2,
@@ -307,49 +309,14 @@ button {
 .clearfix {
   zoom: 1;
 }
-/*_________________________________________________________ Layout - Global */
-/*.page, .page-flex { display: block; margin-left: auto; margin-right: auto; width: 960px; }
-.page-thin { display: block; margin-left: auto; margin-right: auto; width: 800px; }
-.panelGrid { display: block; margin-left: auto; margin-right: auto; width: 640px; }
-.box { display: inline; float: left; }
-.box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9, .box10, .box11, .box12 {
-     .box; margin-left: 16px; margin-right: 16px;
-}
-.box1 { width: 48px; }
-.box2 { width: 128px; }
-.box3 { width: 208px; }
-.box4 { width: 288px; }
-.box5 { width: 368px; }
-.box6 { width: 448px; }
-.box7 { width: 528px; }
-.box8 { width: 608px; }
-.box9 { width: 688px; }
-.box10 { width: 768px; }
-.box11 { width: 848px; }
-.box12 { width: 928px; }
-.col6 { .box; width: 480px; }
-.col8 { .box; width: 640px; }
-.col9 { .box; width: 720px; }
-.col10 { .box; width: 800px; }
-
-.first { margin-left: 0; }
-.last { margin-right: 0; }
-
-.push1 { margin-left: 96px; }
-.push2 { margin-left: 144px; }
-.push3 { margin-left: 256px; }
-.push4 { margin-left: 336px; }
-.push5 { margin-left: 416px; }
-*/
 #container {
   position: relative;
+  background-color: #a7daf9;
 }
 .box {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #ffffaa;
-  width: 768px;
 }
 .relative {
   position: relative;
@@ -384,7 +351,6 @@ hr, .break {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #ffffaa;
   width: 768px;
 }
 /*_________________________________________________________ Layout - Editor */
@@ -392,25 +358,118 @@ hr, .break {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #ffffaa;
-  width: 768px;
+  width: 910px;
 }
-#editor .toolbox nav a.selected {
-  background: white;
+#editor .workbench {
+  width: 370px;
+  float: left;
+}
+#editor .toolbox {
+  width: 520px;
+  float: right;
+}
+#editor .toolbox .option {
+  background-color: #ffffff;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+#editor .toolbox .cardtext span {
+  float: left;
+  font-size: 18px;
+  line-height: 18px;
+  margin-top: 8px;
+  color: #666666;
+}
+#editor .toolbox .cardtext input.text {
+  float: right;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 5px;
+  width: 300px;
+}
+#editor .toolbox .cardtext textarea {
+  float: right;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px;
+  width: 300px;
+  height: 50px;
+}
+#editor .toolbox .name {
+  height: 35px;
+}
+#editor .toolbox .description {
+  height: 60px;
+}
+#editor .toolbox .parts {
+  background: transparent;
+  padding: 0px;
+}
+#editor .toolbox .parts nav {
+  height: 44px;
+  margin-left: 20px;
+}
+#editor .toolbox .parts nav a {
+  display: block;
+  padding: 10px 10px;
+  float: left;
+  font-size: 24px;
+  line-height: 24px;
+  cursor: pointer;
+}
+#editor .toolbox .parts nav a.selected {
+  background-color: #ffffff;
+  -moz-border-top-left-radius: 10px;
+  -webkit-border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+  -moz-border-top-right-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+#editor .toolbox .parts .tray {
+  background-color: #ffffff;
+  padding: 20px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 /*_________________________________________________________ Layout - Stage */
 #stage {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #ffffaa;
-  width: 768px;
+  width: 350px;
 }
 /*_________________________________________________________ Layout - Card */
 .card {
-  width: 200px;
-  height: 300px;
-  background-color: red;
+  width: 350px;
+  height: 500px;
+  background-color: #ffffff;
+  border: 10px solid #fbeb4f;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card .name {
+  font-size: 24px;
+  margin: 10px;
+  line-height: 24px;
+  height: 24px;
+}
+.card .character {
+  margin: 10px;
+  width: 320px;
+  height: 320px;
+  background-color: #eee;
+}
+.card .description {
+  margin: 10px;
 }
 /*_________________________________________________________ Special Media Layouts */
 @media all and (orientation:portrait) {

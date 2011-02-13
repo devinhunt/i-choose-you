@@ -1,6 +1,6 @@
 <script id="template_card" type="text/html">
     <h1 class="name"></h1>
-    <div class="tinemon">
+    <div class="character">
     <% _.each(layers,function (set, key) { %>
         <% if(key != 'name' && key != 'description') { %>
         <div class="layer <%= key %>">
@@ -24,26 +24,31 @@
     </div>
     
     <div class="toolbox">
-        <nav>
-            <% _.each(parts, function (set, key) { %> <a class="<%= key %>" data-type="<%= key %>"><%= key %></a> <% }); %>
-        </nav>
-        <div class="tray">
-        <% _.each(parts, function (set, key) { %>
-            <div class="items hidden <%= key %>">
-            <% _.each(set, function (item) { %> 
-                <a class="part" data-part-type="<%= key %>" data-part-id="<%= item.id %>">
-                <img src="<%= item.icon %>" />
-                <%= item.name %>
-                </a>
+        <div class="cardtext option name">
+            <span>Name it</span>
+            <input class="text" type="text" />
+        </div>
+        <div class="parts option">
+            <nav>
+                <% _.each(parts, function (set, key) { %> <a class="<%= key %>" data-type="<%= key %>"><%= key %></a> <% }); %>
+            </nav>
+            <div class="tray">
+            <% _.each(parts, function (set, key) { %>
+                <div class="items hidden <%= key %>">
+                <% _.each(set, function (item) { %> 
+                    <a class="part" data-part-type="<%= key %>" data-part-id="<%= item.id %>">
+                    <img src="<%= item.icon %>" />
+                    </a>
+                <% }); %>
+                </div>
             <% }); %>
             </div>
-        <% }); %>
         </div>
-        <div class="cardtext">
-            Name your pokemon <input class="text name" type="text" />
-            Give it a message <textarea class="description"></textarea>
+        <div class="cardtext option description">
+            <span>Give it a message</span>
+            <textarea></textarea>
         </div>
-        <div class="controls">
+        <div class="controls option">
             <a class="publish">Done!</a>
             <a class="randomize">Randomize Your Pokemon</a>
         </div>

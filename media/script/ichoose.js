@@ -69,7 +69,7 @@ $(function() {
             _.each(that.model.toJSON(), function(val, key) {
                 if(IChoose.parts[key]) {
                     var partSet = getLayerUrl(key, val);
-                    that.$('.tinemon .' + key + ' img').attr('src', partSet.icon);
+                    that.$('.character .' + key + ' img').attr('src', partSet.icon);
                 }
             });
             
@@ -88,10 +88,10 @@ $(function() {
         template: _.template($('#template_editor_ui').html()),
         
         events : {
-            "click .toolbox nav a"          : "onToolboxTabClick",
-            "click .tray a.part"            : "onPartClick",
-            "keyup .cardtext .name"         : "onNameChange",
-            "keyup .cardtext .description"  : "onDescriptionChange",
+            "click .toolbox nav a"                  : "onToolboxTabClick",
+            "click .tray a.part"                    : "onPartClick",
+            "keyup .toolbox .name input"            : "onNameChange",
+            "keyup .toolbox .description textarea"  : "onDescriptionChange",
             
             "click .publish"                : "onPublishClick",
             "click .randomize"              : "onRandomizeClick"
@@ -140,11 +140,11 @@ $(function() {
         },
         
         onNameChange : function(event) {
-            this.model.set({name: this.$('.cardtext .name').val()});
+            this.model.set({name: $(event.target).val()});
         },
         
         onDescriptionChange : function(event) {
-            this.model.set({description: this.$('.cardtext .description').val()});
+            this.model.set({description: $(event.target).val()});
         },
         
         onPublishClick : function(event) {

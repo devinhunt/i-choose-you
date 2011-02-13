@@ -5,12 +5,6 @@
  * Derived from CSS Reset and Boilerplate
  */
 
-// LESS based themes
-
-
-
-
-
 /*_________________________________________________________ Global Reset */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
@@ -42,14 +36,35 @@ table { border-collapse:collapse; border-spacing:0; }
 hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
 input, select { vertical-align:middle; }
 
+/*_________________________________________________________ Themes */
+@bg-body-light: #a7daf9;
+@bg-body-dark: #62bdf4;
+@bg-card: #ffffff;
+
+@border-card: #FBEB4F;
+
+@text-body: #333; 
+@text-subtle: #666;
+
+.rounded (@r: 2px) { -moz-border-radius: @r; -webkit-border-radius: @r; border-radius: @r; }
+.roundedTop (@r: 2px) { -moz-border-top-left-radius: @r; -webkit-border-top-left-radius: @r; border-top-left-radius: @r;
+                        -moz-border-top-right-radius: @r; -webkit-border-top-right-radius: @r; border-top-right-radius: @r; }
+.roundedBottom (@r: 2px) { -moz-border-bottom-left-radius: @r; -webkit-border-bottom-left-radius: @r; border-bottom-left-radius: @r;
+                        -moz-border-bottom-right-radius: @r; -webkit-border-bottom-right-radius: @r; border-bottom-right-radius: @r; }
+.shadow(@x: 0px, @y: 0px, @radius: 4px, @color: #000) { -moz-box-shadow: @x @y @radius @color; -webkit-box-shadow: @x @y @radius @color; box-shadow: @x @y @radius @color; }
+.shadowInset(@x: 0px, @y: 0px, @radius: 4px, @color: #000) { -moz-box-shadow: inset @x @y @radius @color; -webkit-box-shadow: inset @x @y @radius @color; box-shadow: inset @x @y @radius @color; }
+.gradient(@from: #000000, @to: #ffffff, @start: 0%, @end: 100%) { background-color: @from;
+                                          background-image: -moz-linear-gradient(@start @end 90deg, @to, @from);
+                                          background-image: -webkit-gradient(linear, 0% @start, 0% @end, from(@from), to(@to)); }
+
 
 /*_________________________________________________________ Typography - Global */
 html { overflow-y: scroll; }
-body { font:13px/1.231 sans-serif; *font-size:small; }
+body { font:13px/1.231 sans-serif; *font-size:small; background-color: @bg-body-light; }
 select, input, textarea, button { font:99% sans-serif; }
 pre, code, kbd, samp { font-family: monospace, sans-serif; }
 
-body, select, input, textarea {   color: #444; }
+body, select, input, textarea {   color: @text-body; }
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 
 
@@ -98,45 +113,11 @@ button {  width: auto; overflow: visible; }
 .clearfix { zoom: 1; }
 
 
-/*_________________________________________________________ Layout - Global */
-/*.page, .page-flex { display: block; margin-left: auto; margin-right: auto; width: 960px; }
-.page-thin { display: block; margin-left: auto; margin-right: auto; width: 800px; }
-.panelGrid { display: block; margin-left: auto; margin-right: auto; width: 640px; }
-.box { display: inline; float: left; }
-.box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9, .box10, .box11, .box12 {
-     .box; margin-left: 16px; margin-right: 16px;
-}
-.box1 { width: 48px; }
-.box2 { width: 128px; }
-.box3 { width: 208px; }
-.box4 { width: 288px; }
-.box5 { width: 368px; }
-.box6 { width: 448px; }
-.box7 { width: 528px; }
-.box8 { width: 608px; }
-.box9 { width: 688px; }
-.box10 { width: 768px; }
-.box11 { width: 848px; }
-.box12 { width: 928px; }
-.col6 { .box; width: 480px; }
-.col8 { .box; width: 640px; }
-.col9 { .box; width: 720px; }
-.col10 { .box; width: 800px; }
-
-.first { margin-left: 0; }
-.last { margin-right: 0; }
-
-.push1 { margin-left: 96px; }
-.push2 { margin-left: 144px; }
-.push3 { margin-left: 256px; }
-.push4 { margin-left: 336px; }
-.push5 { margin-left: 416px; }
-*/
 
 #main-header, #main-footer {  }
-#container { position: relative}
-.box { position: absolute; top: 0; left: 0; background-color: #ffffaa; width: 768px; }
+#container { position: relative; background-color: @bg-body-light; }
 
+.box { position: absolute; top: 0; left: 0; }
 .relative { position: relative; }
 .hidden { display: none; height: 0; width: 0; }
 .left { float: left; }
@@ -145,32 +126,53 @@ button {  width: auto; overflow: visible; }
 hr, .break { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; margin: 0; padding: 0; border: 0; }
 
 /*_________________________________________________________ Layout - Landing */
-#landing { .box; 
+#landing { .box; width: 768px;
     
 }
 
 /*_________________________________________________________ Layout - Editor */
-#editor { .box;
-    .workbench { 
-        
+#editor { .box; width: 910px;
+    .workbench { width: 370px; float: left;
+         
+        .card { }
     }
 
-    .toolbox { 
-        nav {
-            a { }
-            a.selected { background: white; }
+    .toolbox { width: 520px; float: right; 
+        
+        .option { background-color: @bg-card; .rounded(12px); padding: 20px; margin-top: 20px; }
+        
+        .cardtext { 
+            span { float: left; font-size: 18px; line-height: 18px; margin-top: 8px; color: @text-subtle; }
+            input.text { float: right; font-size: 18px; line-height: 18px; padding: 5px; width: 300px; }
+            textarea { float: right; font-size: 14px; line-height: 20px; padding: 5px; width: 300px; height: 50px; }
+        }
+        
+        .name { height: 35px; }
+        .description { height: 60px; }
+        
+        .parts { background: transparent; padding: 0px;
+            nav { height: 44px; margin-left: 20px; 
+                a { display: block; padding: 10px 10px; float: left; 
+                    font-size: 24px; line-height: 24px; cursor: pointer;  }
+                a.selected { background-color: @bg-card; .roundedTop(10px); }
+                a:first-child { }
+                a:last-child { }
+            }
+            .tray { background-color: @bg-card; padding: 20px; .rounded(10px); }
         }
     }
 }
 
 /*_________________________________________________________ Layout - Stage */
-#stage { .box;
+#stage { .box; width: 350px; 
     
 }
 
 /*_________________________________________________________ Layout - Card */
-.card { width: 200px; height: 300px; background-color: red;
-    
+.card { width: 350px; height: 500px; background-color: @bg-card; border: 10px solid @border-card; .rounded(12px); .shadow(0px, 4px, 8px, rgba(0, 0, 0, .1));
+    .name { font-size: 24px; margin: 10px; line-height: 24px; height: 24px; }
+    .character { margin: 10px; width: 320px; height: 320px; background-color: #eee; }
+    .description { margin: 10px; }
 }
 
 /*_________________________________________________________ Special Media Layouts */
