@@ -17,49 +17,49 @@ $(function() {
         
         parts: {
             body : [
-                { id: 'body1', icon: "media/img/parts/body-1-pink.png", img: "media/img/parts/body-1-pink.png" },
+                { id: 'body1', icon: "/media/img/parts/body-1-pink.png", img: "/media/img/parts/body-1-pink.png" },
             ],
             faces : [
-                { id: 'face1', icon: "media/img/parts/face-1.png", img: "media/img/parts/face-1.png" },
-                { id: 'face2', icon: "media/img/parts/face-2.png", img: "media/img/parts/face-2.png" },
-                { id: 'face3', icon: "media/img/parts/face-3.png", img: "media/img/parts/face-3.png" },
-                { id: 'face4', icon: "media/img/parts/face-4.png", img: "media/img/parts/face-4.png" },
-                { id: 'face5', icon: "media/img/parts/face-5.png", img: "media/img/parts/face-5.png" },
-                { id: 'face6', icon: "media/img/parts/face-6.png", img: "media/img/parts/face-6.png" },
-                { id: 'face7', icon: "media/img/parts/face-7.png", img: "media/img/parts/face-7.png" }
+                { id: 'face1', icon: "/media/img/parts/face-1.png", img: "/media/img/parts/face-1.png" },
+                { id: 'face2', icon: "/media/img/parts/face-2.png", img: "/media/img/parts/face-2.png" },
+                { id: 'face3', icon: "/media/img/parts/face-3.png", img: "/media/img/parts/face-3.png" },
+                { id: 'face4', icon: "/media/img/parts/face-4.png", img: "/media/img/parts/face-4.png" },
+                { id: 'face5', icon: "/media/img/parts/face-5.png", img: "/media/img/parts/face-5.png" },
+                { id: 'face6', icon: "/media/img/parts/face-6.png", img: "/media/img/parts/face-6.png" },
+                { id: 'face7', icon: "/media/img/parts/face-7.png", img: "/media/img/parts/face-7.png" }
             ],
             eyes : [
-                { id: 'eye1', icon: "media/img/parts/eyes-1.png", img: "media/img/parts/eyes-1.png" },
-                { id: 'eye2', icon: "media/img/parts/eyes-2.png", img: "media/img/parts/eyes-2.png" },
-                { id: 'eye3', icon: "media/img/parts/eyes-3.png", img: "media/img/parts/eyes-3.png" },
-                { id: 'eye4', icon: "media/img/parts/eyes-4.png", img: "media/img/parts/eyes-4.png" }
+                { id: 'eye1', icon: "/media/img/parts/eyes-1.png", img: "/media/img/parts/eyes-1.png" },
+                { id: 'eye2', icon: "/media/img/parts/eyes-2.png", img: "/media/img/parts/eyes-2.png" },
+                { id: 'eye3', icon: "/media/img/parts/eyes-3.png", img: "/media/img/parts/eyes-3.png" },
+                { id: 'eye4', icon: "/media/img/parts/eyes-4.png", img: "/media/img/parts/eyes-4.png" }
             ],
             arms : [
-                { id: 'arm1', icon: "media/img/parts/arms-1-pink.png", img: "media/img/parts/arms-1-pink.png" },
-                { id: 'arm2', icon: "media/img/parts/arms-2-pink.png", img: "media/img/parts/arms-2-pink.png" },
-                { id: 'arm3', icon: "media/img/parts/arms-3-pink.png", img: "media/img/parts/arms-3-pink.png" },
-                { id: 'arm4', icon: "media/img/parts/arms-4-pink.png", img: "media/img/parts/arms-4-pink.png" },
-                { id: 'arm5', icon: "media/img/parts/arms-5-pink.png", img: "media/img/parts/arms-5-pink.png" }
+                { id: 'arm1', icon: "/media/img/parts/arms-1-pink.png", img: "/media/img/parts/arms-1-pink.png" },
+                { id: 'arm2', icon: "/media/img/parts/arms-2-pink.png", img: "/media/img/parts/arms-2-pink.png" },
+                { id: 'arm3', icon: "/media/img/parts/arms-3-pink.png", img: "/media/img/parts/arms-3-pink.png" },
+                { id: 'arm4', icon: "/media/img/parts/arms-4-pink.png", img: "/media/img/parts/arms-4-pink.png" },
+                { id: 'arm5', icon: "/media/img/parts/arms-5-pink.png", img: "/media/img/parts/arms-5-pink.png" }
             ],
             feet : [
-                { id: 'feet1', icon: "media/img/parts/feet-1-pink.png", img: "media/img/parts/feet-1-pink.png" },
-                { id: 'feet2', icon: "media/img/parts/feet-2-pink.png", img: "media/img/parts/feet-2-pink.png" },
-                { id: 'feet3', icon: "media/img/parts/feet-3-pink.png", img: "media/img/parts/feet-3-pink.png" },
-                { id: 'feet4', icon: "media/img/parts/feet-4-pink.png", img: "media/img/parts/feet-4-pink.png" }
+                { id: 'feet1', icon: "/media/img/parts/feet-1-pink.png", img: "/media/img/parts/feet-1-pink.png" },
+                { id: 'feet2', icon: "/media/img/parts/feet-2-pink.png", img: "/media/img/parts/feet-2-pink.png" },
+                { id: 'feet3', icon: "/media/img/parts/feet-3-pink.png", img: "/media/img/parts/feet-3-pink.png" },
+                { id: 'feet4', icon: "/media/img/parts/feet-4-pink.png", img: "/media/img/parts/feet-4-pink.png" }
             ],
             tails : [
-                { id: 'tail1', icon: "media/img/parts/tail-1-pink.png", img: "media/img/parts/tail-1-pink.png" },
-                { id: 'tail2', icon: "media/img/parts/tail-2-pink.png", img: "media/img/parts/tail-2-pink.png" },
-                { id: 'tail3', icon: "media/img/parts/tail-3-pink.png", img: "media/img/parts/tail-3-pink.png" },
-                { id: 'tail4', icon: "media/img/parts/tail-4-pink.png", img: "media/img/parts/tail-4-pink.png" }
+                { id: 'tail1', icon: "/media/img/parts/tail-1-pink.png", img: "/media/img/parts/tail-1-pink.png" },
+                { id: 'tail2', icon: "/media/img/parts/tail-2-pink.png", img: "/media/img/parts/tail-2-pink.png" },
+                { id: 'tail3', icon: "/media/img/parts/tail-3-pink.png", img: "/media/img/parts/tail-3-pink.png" },
+                { id: 'tail4', icon: "/media/img/parts/tail-4-pink.png", img: "/media/img/parts/tail-4-pink.png" }
             ],
             headgear : [
-                { id: 'hg1', icon: "media/img/parts/headgear-1.png", img: "media/img/parts/headgear-1.png" },
-                { id: 'hg2', icon: "media/img/parts/headgear-2.png", img: "media/img/parts/headgear-2.png" },
-                { id: 'hg3', icon: "media/img/parts/headgear-3.png", img: "media/img/parts/headgear-3.png" },
-                { id: 'hg4', icon: "media/img/parts/headgear-4.png", img: "media/img/parts/headgear-4.png" },
-                { id: 'hg5', icon: "media/img/parts/headgear-5.png", img: "media/img/parts/headgear-5.png" },
-                { id: 'hg6', icon: "media/img/parts/headgear-6.png", img: "media/img/parts/headgear-6.png" },
+                { id: 'hg1', icon: "/media/img/parts/headgear-1.png", img: "/media/img/parts/headgear-1.png" },
+                { id: 'hg2', icon: "/media/img/parts/headgear-2.png", img: "/media/img/parts/headgear-2.png" },
+                { id: 'hg3', icon: "/media/img/parts/headgear-3.png", img: "/media/img/parts/headgear-3.png" },
+                { id: 'hg4', icon: "/media/img/parts/headgear-4.png", img: "/media/img/parts/headgear-4.png" },
+                { id: 'hg5', icon: "/media/img/parts/headgear-5.png", img: "/media/img/parts/headgear-5.png" },
+                { id: 'hg6', icon: "/media/img/parts/headgear-6.png", img: "/media/img/parts/headgear-6.png" },
             ],
         }
     };
