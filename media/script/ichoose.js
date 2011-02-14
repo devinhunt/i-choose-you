@@ -227,7 +227,7 @@ $(function() {
         },
         
         _getTwitterWidget : function(url, name) {
-            var message = "This Valentine's Day, I choose you " + name + "!";
+            var message = "This #ValentinesDay, I choose you " + name + "!";
             return '<a href="http://twitter.com/share" class="twitter-share-button" data-url="' + url + '" data-text="' + message + '" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>'
         },
         
@@ -288,6 +288,7 @@ $(function() {
         
         editor : function() {
             App.showState('editor');
+            EditorView.$('.name .text').select().focus();
         },
         
         creation : function(creation_slug) {
