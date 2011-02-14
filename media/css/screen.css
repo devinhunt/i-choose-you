@@ -584,6 +584,10 @@ body {
   padding: 5px;
   width: 150px;
 }
+#stage .tweet-share {
+  width: 55px;
+  height: 70px;
+}
 /*_________________________________________________________ Layout - Card */
 .card {
   width: 350px;
