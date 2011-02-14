@@ -555,7 +555,7 @@ body {
 .card {
   width: 350px;
   height: 500px;
-  background-color: #ffffff;
+  background: #fbeb4f;
   border: 10px solid #fbeb4f;
   -moz-border-radius: 12px;
   -webkit-border-radius: 12px;
@@ -564,37 +564,74 @@ body {
   -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
-.card .name {
+.card .inner {
+  background: url(../img/ui/bg-card.jpg);
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  width: 350px;
+  height: 480px;
+  -moz-box-shadow: 0px 0px 4px #ceac20;
+  -webkit-box-shadow: 0px 0px 4px #ceac20;
+  box-shadow: 0px 0px 4px #ceac20;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  position: relative;
+}
+.card .inner .name {
   font-size: 24px;
-  margin: 10px;
+  padding: 10px 10px 10px 90px;
   line-height: 24px;
   height: 24px;
 }
-.card .character {
-  margin: 10px;
-  width: 320px;
-  height: 320px;
-  background-color: #eee;
-  position: relative;
+.card .inner .heart-icon {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  top: 4px;
+  left: 4px;
+  background: url(../img/ui/heart-icon.png) center no-repeat;
+  z-index: 300;
 }
-.card .character .layer {
+.card .inner .character {
+  margin: 0px 22px;
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  position: relative;
+  border: 2px solid #bc9220;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+.card .inner .character .layer {
   position: absolute;
   top: 0;
   left: 0;
 }
-.card .character .faces {
+.card .inner .character .headgear {
+  z-index: 260;
+}
+.card .inner .character .faces {
   z-index: 250;
 }
-.card .character .eyes {
+.card .inner .character .eyes {
   z-index: 240;
 }
-.card .character .arms {
+.card .inner .character .arms {
   z-index: 230;
 }
-.card .character .body {
+.card .inner .character .body {
+  z-index: 220;
+}
+.card .inner .character .feet {
   z-index: 200;
 }
-.card .description {
+.card .inner .character .tails {
+  z-index: 200;
+}
+.card .inner .description {
   margin: 20px;
   font-size: 18px;
   line-height: 20px;

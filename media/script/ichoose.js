@@ -53,6 +53,14 @@ $(function() {
                 { id: 'tail3', icon: "media/img/parts/tail-3-pink.png", img: "media/img/parts/tail-3-pink.png" },
                 { id: 'tail4', icon: "media/img/parts/tail-4-pink.png", img: "media/img/parts/tail-4-pink.png" }
             ],
+            headgear : [
+                { id: 'hg1', icon: "media/img/parts/headgear-1.png", img: "media/img/parts/headgear-1.png" },
+                { id: 'hg2', icon: "media/img/parts/headgear-2.png", img: "media/img/parts/headgear-2.png" },
+                { id: 'hg3', icon: "media/img/parts/headgear-3.png", img: "media/img/parts/headgear-3.png" },
+                { id: 'hg4', icon: "media/img/parts/headgear-4.png", img: "media/img/parts/headgear-4.png" },
+                { id: 'hg5', icon: "media/img/parts/headgear-5.png", img: "media/img/parts/headgear-5.png" },
+                { id: 'hg6', icon: "media/img/parts/headgear-6.png", img: "media/img/parts/headgear-6.png" },
+            ],
         }
     };
     

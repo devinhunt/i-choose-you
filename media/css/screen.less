@@ -195,18 +195,24 @@ body { background: url(../img/ui/bg-hill-tile.png) @bg-body-light; }
 
 
 /*_________________________________________________________ Layout - Card */
-.card { width: 350px; height: 500px; background-color: @bg-card; border: 10px solid @border-card; .rounded(12px); .shadow(0px, 4px, 8px, rgba(0, 0, 0, .1));
-    .name { font-size: 24px; margin: 10px; line-height: 24px; height: 24px; }
-    .character { margin: 10px; width: 320px; height: 320px; background-color: #eee; position: relative;
-        .layer { position: absolute; top: 0; left: 0; }
+.card { width: 350px; height: 500px; background: @border-card; border: 10px solid @border-card; .rounded(12px); .shadow(0px, 4px, 8px, rgba(0, 0, 0, .1));
+    .inner { background: url(../img/ui/bg-card.jpg); .rounded(1px); width: 350px; height: 480px; .shadow(0px, 0px, 4px, #ceac20); .rounded(2px); position: relative;
+        .name { font-size: 24px; padding: 10px 10px 10px 90px; line-height: 24px; height: 24px; }
+        .heart-icon { position: absolute; width: 85px; height: 85px; top: 4px; left: 4px; background: url(../img/ui/heart-icon.png) center no-repeat; z-index: 300; }
+        .character { margin: 0px 22px; width: 300px; height: 300px; background-color: #fff; position: relative; border: 2px solid #bc9220; .rounded(2px);
+            .layer { position: absolute; top: 0; left: 0; }
         
-        .faces { z-index: 250; }
-        .eyes { z-index: 240; }
-        .arms { z-index: 230; }
-        .body { z-index: 200; }
-    }
+            .headgear { z-index: 260; }
+            .faces { z-index: 250; }
+            .eyes { z-index: 240; }
+            .arms { z-index: 230; }
+            .body { z-index: 220; }
+            .feet { z-index: 200; }
+            .tails { z-index: 200; }
+        }
     
-    .description { margin: 20px; font-size: 18px; line-height: 20px; width: 310px; height: 102px; overflow: hidden; }
+        .description { margin: 20px; font-size: 18px; line-height: 20px; width: 310px; height: 102px; overflow: hidden; }
+    }
 }
 
 
