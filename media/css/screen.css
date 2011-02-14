@@ -725,7 +725,10 @@ button.big-button:active {
 .ie-alert {
   display: none;
 }
-* html .ie-alert {
+.ie6 .ie-alert,
+.ie7 .ie-alert,
+.ie8 .ie-alert,
+.ie9 .ie-alert {
   display: block;
   position: absolute;
   top: 0;
@@ -734,14 +737,20 @@ button.big-button:active {
   height: 100%;
   z-index: 900;
 }
-* html .ie-alert .message {
+.ie6 .ie-alert .message,
+.ie7 .ie-alert .message,
+.ie8 .ie-alert .message,
+.ie9 .ie-alert .message {
   margin: 32px auto 0 auto;
   width: 300px;
   background: #beedff;
   padding: 100px;
   border: solid white 10px;
 }
-* html .ie-alert .message h1 {
+.ie6 .ie-alert .message h1,
+.ie7 .ie-alert .message h1,
+.ie8 .ie-alert .message h1,
+.ie9 .ie-alert .message h1 {
   font-size: 32px;
 }
 /*_________________________________________________________ Special Media Layouts */
