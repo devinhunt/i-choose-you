@@ -651,15 +651,18 @@ body {
   left: 0;
 }
 .card .inner .character .headgear {
-  z-index: 260;
+  z-index: 270;
 }
 .card .inner .character .faces {
-  z-index: 250;
+  z-index: 260;
 }
 .card .inner .character .eyes {
-  z-index: 240;
+  z-index: 250;
 }
 .card .inner .character .arms {
+  z-index: 240;
+}
+.card .inner .character .ears {
   z-index: 230;
 }
 .card .inner .character .body {
