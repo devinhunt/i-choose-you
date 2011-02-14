@@ -288,7 +288,7 @@ $(function() {
         
         editor : function() {
             App.showState('editor');
-            EditorView.$('.name .text').select().focus();
+            EditorView.$('.name input').focus().select();
         },
         
         creation : function(creation_slug) {
