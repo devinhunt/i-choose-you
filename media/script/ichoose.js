@@ -215,13 +215,13 @@ $(function() {
                 key: bitly_api_key, 
                 onSuccess: function(short_url){ 
                     that.$('.share-link').val(short_url);
-                    that.$('.tweet-share').html(that._getTwitterWidget(short_url));
+                    that.$('.tweet-share').html(that._getTwitterWidget(short_url, this.model.get('name')));
                 } 
             });
         },
         
-        _getTwitterWidget : function(url) {
-            var message = escape("This Valentine's Day, I choose you " + name);
+        _getTwitterWidget : function(url, name) {
+            var message = "This Valentine's Day, I choose you " + name + "!";
             return '<a href="http://twitter.com/share" class="twitter-share-button" data-url="' + url + '" data-text="' + message + '" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>'
         },
         
