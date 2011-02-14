@@ -548,7 +548,6 @@ body {
 }
 #editor .toolbox .parts .tray .part img {
   height: 120px;
-  margin-top: -10px;
 }
 #editor .toolbox .controls {
   text-align: center;
