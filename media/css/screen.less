@@ -174,7 +174,7 @@ body { background: url(../img/ui/bg-hill-tile.png) @bg-body-light; }
         .parts { background: transparent; padding: 0px; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
             nav { height: 38px; margin-left: 20px; 
                 a { display: block; padding: 10px 10px; float: left; 
-                    font-size: 18px; line-height: 18px; cursor: pointer;  }
+                    font-size: 16px; line-height: 18px; cursor: pointer;  }
                 a.selected { background-color: @bg-card; .roundedTop(10px); }
                 a:first-child { }
                 a:last-child { }
@@ -191,12 +191,12 @@ body { background: url(../img/ui/bg-hill-tile.png) @bg-body-light; }
 
 
 /*_________________________________________________________ Layout - Stage */
-#stage { .box; width: 370px; 
+#stage { .box; width: 370px;
     .share { background-color: @bg-card; .rounded(12px); padding: 10px; height: 34px; margin-top: 20px; .shadow(0px, 2px, 16px, rgba(0, 0, 0, .2)); 
         span { float: left; font-size: 18px; line-height: 18px; margin-top: 8px; color: @text-subtle; }
         input.text { float: right; font-size: 18px; line-height: 18px; padding: 5px; width: 150px; }
     }
-    .tweet-share { width: 55px; height: 70px; }
+    .tweet-share { width: 55px; height: 70px; position: absolute; top: 10px; right: -75px; }
 }
 
 

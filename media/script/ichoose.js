@@ -28,6 +28,12 @@ $(function() {
                 { id: 'face6', icon: "media/img/parts/face-6.png", img: "media/img/parts/face-6.png" },
                 { id: 'face7', icon: "media/img/parts/face-7.png", img: "media/img/parts/face-7.png" }
             ],
+            ears : [
+                { id: 'ear1', icon: "media/img/parts/ears-1-pink.png", img: "media/img/parts/ears-1.png" },
+                { id: 'ear2', icon: "media/img/parts/ears-2-pink.png", img: "media/img/parts/ears-2.png" },
+                { id: 'ear3', icon: "media/img/parts/ears-3-pink.png", img: "media/img/parts/ears-3.png" },
+                { id: 'ear4', icon: "media/img/parts/ears-4-pink.png", img: "media/img/parts/ears-4.png" },
+            ],
             eyes : [
                 { id: 'eye1', icon: "media/img/parts/eyes-1.png", img: "media/img/parts/eyes-1.png" },
                 { id: 'eye2', icon: "media/img/parts/eyes-2.png", img: "media/img/parts/eyes-2.png" },
