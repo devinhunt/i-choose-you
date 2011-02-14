@@ -128,8 +128,7 @@ $(function() {
             "keyup .toolbox .name input"            : "onNameChange",
             "keyup .toolbox .description textarea"  : "onDescriptionChange",
             
-            "click .publish"                : "onPublishClick",
-            "click .randomize"              : "onRandomizeClick"
+            "click .publish"                : "onPublishClick"
         },
         
         currentTray : 'faces',
@@ -184,15 +183,15 @@ $(function() {
         
         onPublishClick : function(event) {
             App.displayCard(hashCard(this.model));
-        },
-        
-        onRandomizeClick : function(event) {
-            
         }
     });
     
     window.StageView = Backbone.View.extend({
         el: $('#stage'), 
+        
+        events : {
+            'click .share-link' : 'onShareLinkClick'
+        },
         
         initialize : function() {
             this.render();
@@ -203,25 +202,23 @@ $(function() {
                 this.cardView = new CardView({model: this.model});
                 this.$('.card-container').html(this.cardView.render().el);
             }
-            //this.setSharing();
         },
         
         setSharing : function() {
-            
-            function _getTwitterLink(name, url) {
-                return '<a href="http://twitter.com/share" class="twitter-share-button" data-url="' + url +'" data-text="I choose ' + name + ' to be my valentine!" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
-            }
-            
-            function _getFBLink(name, url) {
-                return '<iframe src="http://www.facebook.com/plugins/like.php?href=' + url + '&amp;layout=button_count&amp;show_faces=false&amp;width=300&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:21px;" allowTransparency="true"></iframe>';
-            }
-            
-            if(this.model) {
-                var url = window.location.href;
-                console.log(url);
-                var name = this.model.get('name');
-                this.$('.share').html(_getTwitterLink(name, url) + _getFBLink(name, url));
-            }
+            var that = this;
+            var bitly_api_key = 'R_93f32037c33c8c020825ea7667be9207';
+            var bitly_login = 'hailpixel';
+            var url = window.location.href;
+            var bitly = new $.Bitly();
+            bitly.shorten(url, {
+                login: bitly_login, 
+                key: bitly_api_key, 
+                onSuccess: function(short_url){ that.$('.share-link').val(short_url); } 
+            });
+        },
+        
+        onShareLinkClick : function(event) {
+            $(event.target).focus().select();
         }
     });
     
@@ -282,6 +279,7 @@ $(function() {
         creation : function(creation_slug) {
             StageView.model = dehashCard(creation_slug);
             StageView.render();
+            StageView.setSharing();
             App.showState('stage');
         }
     });
@@ -309,25 +307,24 @@ $(function() {
     }
     
     function hashCard(model) {
-        var hash = ''
-        
-        _.each(model.toJSON(), function(val, key) {
-            if(val && val != "") {
-                hash += key + '|' + val + '||';
-            }
-        });
-            
-        return hash;
+        // var hash = ''
+        // 
+        // _.each(model.toJSON(), function(val, key) {
+        //     if(val && val != "") {
+        //         hash += key + '|' + val + '||';
+        //     }
+        // });
+        return escape(JSON.stringify(model.toJSON()));
     }
     
     function dehashCard(hash) {
-        var pairs = hash.split('||');
-        var attrs = {};
-        _.each(pairs, function(val) {
-            var keyval = val.split('|');
-            attrs[keyval[0]] = keyval[1];
-        });
-        return new Card(attrs);
+        // var pairs = unescape(hash).split('||');
+        // var attrs = {};
+        // _.each(pairs, function(val) {
+        //     var keyval = val.split('|');
+        //     attrs[keyval[0]] = keyval[1];
+        // });
+        return new Card(JSON.parse(unescape(hash)));
     }
     
     // Initialize the app and kick things off ..
