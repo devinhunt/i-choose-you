@@ -537,14 +537,18 @@ body {
 }
 #editor .toolbox .parts .tray .part {
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 120px;
+  height: 120px;
   float: left;
-  margin: 0 10px 10px 0;
+  margin: 0;
   cursor: pointer;
 }
+#editor .toolbox .parts .tray .part:hover {
+  background-color: #FEFACD;
+}
 #editor .toolbox .parts .tray .part img {
-  height: 64px;
+  height: 120px;
+  margin-top: -10px;
 }
 #editor .toolbox .controls {
   text-align: center;
