@@ -725,7 +725,7 @@ button.big-button:active {
 .ie-alert {
   display: none;
 }
-html.no-js .ie-alert {
+* html .ie-alert {
   display: block;
   position: absolute;
   top: 0;
@@ -734,14 +734,14 @@ html.no-js .ie-alert {
   height: 100%;
   z-index: 900;
 }
-html.no-js .ie-alert .message {
+* html .ie-alert .message {
   margin: 32px auto 0 auto;
   width: 300px;
   background: #beedff;
   padding: 100px;
   border: solid white 10px;
 }
-html.no-js .ie-alert .message h1 {
+* html .ie-alert .message h1 {
   font-size: 32px;
 }
 /*_________________________________________________________ Special Media Layouts */
