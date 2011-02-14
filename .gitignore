@@ -8,7 +8,6 @@ bin/
 develop-eggs/
 downloads/
 eggs/
-parts/
 debug.log
 hailpixel.ichooseyou.egg-info/
 var/
