@@ -215,7 +215,7 @@ $(function() {
                 key: bitly_api_key, 
                 onSuccess: function(short_url){ 
                     that.$('.share-link').val(short_url);
-                    that.$('.tweet-share').html(that._getTwitterWidget(short_url, this.model.get('name')));
+                    that.$('.tweet-share').html(that._getTwitterWidget(short_url, that.model.get('name')));
                 } 
             });
         },
